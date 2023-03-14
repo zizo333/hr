@@ -8,7 +8,7 @@ import 'app_colors.dart';
 
 ThemeData appThemes = ThemeData(
   fontFamily: AppConstants.fontFamily,
-  primaryColor: AppColors.c01628F,
+  primaryColor: AppColors.c404040,
   backgroundColor: AppColors.cF6F8FA,
   canvasColor: AppColors.cF6F8FA,
   shadowColor: AppColors.cE2DFDF,
@@ -16,7 +16,7 @@ ThemeData appThemes = ThemeData(
   selectedRowColor: AppColors.cAEB3BD,
   unselectedWidgetColor: AppColors.cAEB3BD,
   colorScheme: ThemeData().colorScheme.copyWith(
-        primary: AppColors.c01628F,
+        primary: AppColors.c404040,
         secondary: AppColors.cE27E1C,
       ),
   appBarTheme: AppBarTheme(
@@ -33,7 +33,7 @@ ThemeData appThemes = ThemeData(
     titleTextStyle: TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeight.w500,
-      color: AppColors.c01628F,
+      color: AppColors.c404040,
       fontFamily: AppConstants.fontFamily,
       height: 1.6,
     ),
@@ -59,13 +59,13 @@ ThemeData appThemes = ThemeData(
     fillColor: AppColors.cFFFFFF,
     enabledBorder: _textFieldBorder(AppColors.c707070),
     disabledBorder: _textFieldBorder(AppColors.c707070),
-    focusedBorder: _textFieldBorder(AppColors.c01628F),
+    focusedBorder: _textFieldBorder(AppColors.c404040),
     errorBorder: _textFieldBorder(AppColors.cEF5350),
     focusedErrorBorder: _textFieldBorder(AppColors.cEF5350),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: AppColors.c01628F,
+      backgroundColor: AppColors.c404040,
       textStyle: TextStyle(
         color: Colors.white,
         fontSize: 16.sp,

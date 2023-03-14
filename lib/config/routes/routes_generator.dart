@@ -21,6 +21,10 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
           child: const LoginScreen(),
         ),
       );
+    case AppRoutes.home:
+      return AppPageRoute(
+        builder: (context) => const HomeScreen(),
+      );
 
     default:
       return AppPageRoute(

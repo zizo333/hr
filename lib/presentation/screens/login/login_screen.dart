@@ -126,8 +126,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 50.w),
                       width: double.infinity,
                       child: ElevatedButton(
+                        // onPressed: () =>
+                        //     context.read<LoginCubit>().login(_formState),
                         onPressed: () =>
-                            context.read<LoginCubit>().login(_formState),
+                            AppRouter.offNamed(context, AppRoutes.home),
                         child: Text(
                           AppStrings.login.toUpperCase(),
                         ),
@@ -155,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
       requestState: state.requestState,
       onLoaded: () {
         AppRouter.back(context);
-        AppRouter.offNamed(context, AppRoutes.main);
+        AppRouter.offNamed(context, AppRoutes.home);
       },
       onError: () {
         AppRouter.back(context);

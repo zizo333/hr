@@ -16,6 +16,7 @@ class SvgImages {
   static const String noData = '$_pathUrl/noData.svg';
   static const String id = '$_pathUrl/id.svg';
   static const String logo = '$_pathUrl/logo.svg';
+  static const String meeting = '$_pathUrl/meeting.svg';
 }
 
 class AppImages {

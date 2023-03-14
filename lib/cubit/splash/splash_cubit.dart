@@ -13,7 +13,7 @@ class SplashCubit extends Cubit<String> {
   goToNextRoute() async {
     Future.delayed(const Duration(seconds: 3), () {
       if (_userRepository.isUserAuthenticated()) {
-        emit(AppRoutes.main);
+        emit(AppRoutes.home);
       } else {
         emit(AppRoutes.login);
       }

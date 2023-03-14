@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   const AppColors._();
 
-  static Color c01628F = hexToColor('#404040');
+  static Color c404040 = hexToColor('#404040');
   static Color cF6F8FA = hexToColor('#F6F8FA');
   static Color cFAFCFF = hexToColor('#FAFCFF');
   static Color cFAFAFA = hexToColor('#FAFAFA');

@@ -40,4 +40,5 @@ class AppStrings {
   static const String home = 'Home';
   static const String confirm = 'Confirm';
   static const String refresh = 'Refresh';
+  static const String slideToConfirm = 'Slide to confirm';
 }
