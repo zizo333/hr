@@ -21,15 +21,27 @@ class AuthRepository {
   ) async {
     try {
       final response = await _authRemoteDataSource.login(params);
-      authenticateUser(response.data);
+      authenticateUser(
+        response.data,
+        params.rememberMe,
+        params.password,
+      );
       return Right(response);
     } on ApiException catch (error) {
       return Left(AppFailure(error.message, error.statusCode));
     }
   }
 
-  authenticateUser(UserModel userModel) {
+  authenticateUser(
+    UserModel userModel,
+    bool rememberMe,
+    String password,
+  ) {
     _userLocalDataSource.saveUserData(userModel);
     _userLocalDataSource.saveUserAuthenticatedStatus(true);
+    _userLocalDataSource.saveRememberMeStatus(rememberMe);
+    if (rememberMe) {
+      _userLocalDataSource.savePassword(password);
+    }
   }
 }

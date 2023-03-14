@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:hr/presentation/widgets/prefix_icon.dart';
 
 import '../../../../core/helpers/validator_helper.dart';
 import '../../../../core/utils/app_images.dart';
@@ -12,16 +12,20 @@ import '../../../widgets/password_state_icon.dart';
 
 class LoginForm extends StatelessWidget {
   final TextEditingController phoneController;
+  final TextEditingController companyIdController;
   final TextEditingController passwordController;
   final FocusNode phoneNode;
+  final FocusNode companyIdNode;
   final FocusNode passwordNode;
   final GlobalKey<FormState> formState;
 
   const LoginForm({
     super.key,
     required this.phoneController,
+    required this.companyIdController,
     required this.passwordController,
     required this.phoneNode,
+    required this.companyIdNode,
     required this.passwordNode,
     required this.formState,
   });
@@ -38,6 +42,20 @@ class LoginForm extends StatelessWidget {
           child: Column(
             children: [
               CustomTextField(
+                controller: companyIdController,
+                focusNode: companyIdNode,
+                nextNode: phoneNode,
+                textInputAction: TextInputAction.next,
+                labelText: AppStrings.companyId,
+                prefixIcon: const PrefixIcon(icon: SvgImages.id),
+                onChanged: context.read<LoginCubit>().companyIdChanged,
+                validator: (companyId) => ValidatorHelper.validateText(
+                    companyId, AppStrings.companyIdIsRequired),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              CustomTextField(
                 controller: phoneController,
                 focusNode: phoneNode,
                 nextNode: passwordNode,
@@ -45,7 +63,7 @@ class LoginForm extends StatelessWidget {
                 textInputAction: TextInputAction.next,
                 labelText: AppStrings.phoneNumber,
                 maxLength: 10,
-                prefixIcon: SvgPicture.asset(SvgImages.phone),
+                prefixIcon: const PrefixIcon(icon: SvgImages.phone),
                 onChanged: context.read<LoginCubit>().phoneChanged,
                 validator: ValidatorHelper.validatePhone,
               ),
@@ -57,7 +75,7 @@ class LoginForm extends StatelessWidget {
                 focusNode: passwordNode,
                 labelText: AppStrings.password,
                 obscureText: !state.showPassword,
-                prefixIcon: SvgPicture.asset(SvgImages.lock),
+                prefixIcon: const PrefixIcon(icon: SvgImages.lock),
                 sufixIcon: PasswordStateIcon(
                   onPressed: () {
                     context.read<LoginCubit>().togglePasswordStatus();

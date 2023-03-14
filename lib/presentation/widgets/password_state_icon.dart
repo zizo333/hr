@@ -20,7 +20,8 @@ class PasswordStateIcon extends StatelessWidget {
       onPressed: onPressed,
       icon: SvgPicture.asset(
         showPassword ? SvgImages.showPassword : SvgImages.hidePassword,
-        width: 22.w,
+        width: 18.w,
+        color: Theme.of(context).colorScheme.secondary,
       ),
     );
   }

@@ -14,6 +14,8 @@ class SvgImages {
   static const String hidePassword = '$_pathUrl/hidePassword.svg';
   static const String showPassword = '$_pathUrl/showPassword.svg';
   static const String noData = '$_pathUrl/noData.svg';
+  static const String id = '$_pathUrl/id.svg';
+  static const String logo = '$_pathUrl/logo.svg';
 }
 
 class AppImages {

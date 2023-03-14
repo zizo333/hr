@@ -9,8 +9,8 @@ import 'app_colors.dart';
 ThemeData appThemes = ThemeData(
   fontFamily: AppConstants.fontFamily,
   primaryColor: AppColors.c01628F,
-  backgroundColor: AppColors.cFFFFFF,
-  canvasColor: AppColors.cFFFFFF,
+  backgroundColor: AppColors.cF6F8FA,
+  canvasColor: AppColors.cF6F8FA,
   shadowColor: AppColors.cE2DFDF,
   errorColor: AppColors.cEF5350,
   selectedRowColor: AppColors.cAEB3BD,
@@ -21,17 +21,21 @@ ThemeData appThemes = ThemeData(
       ),
   appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle.dark,
-    backgroundColor: AppColors.cF5F7F9,
-    elevation: 0,
+    backgroundColor: AppColors.cFFFFFF,
+    elevation: 4.r,
     shadowColor: AppColors.cE2DFDF,
-    toolbarHeight: 100.h,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        bottom: Radius.circular(AppSizes.radius.r),
+      ),
+    ),
     centerTitle: true,
     titleTextStyle: TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeight.w500,
       color: AppColors.c01628F,
       fontFamily: AppConstants.fontFamily,
-      height: 1.5,
+      height: 1.6,
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
@@ -51,6 +55,8 @@ ThemeData appThemes = ThemeData(
       fontSize: 14.sp,
       color: AppColors.c848484,
     ),
+    filled: true,
+    fillColor: AppColors.cFFFFFF,
     enabledBorder: _textFieldBorder(AppColors.c707070),
     disabledBorder: _textFieldBorder(AppColors.c707070),
     focusedBorder: _textFieldBorder(AppColors.c01628F),
@@ -67,9 +73,9 @@ ThemeData appThemes = ThemeData(
         fontFamily: AppConstants.fontFamily,
         height: 1.3,
       ),
-      padding: EdgeInsets.symmetric(vertical: 17.h, horizontal: 24.w),
+      padding: EdgeInsets.symmetric(vertical: 17.h, horizontal: 60.w),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSizes.radius.r),
+        borderRadius: BorderRadius.circular(40.r),
       ),
       shadowColor: AppColors.cE2DFDF,
     ),
@@ -85,7 +91,7 @@ ThemeData appThemes = ThemeData(
       ),
       padding: EdgeInsets.symmetric(vertical: 17.h, horizontal: 24.w),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSizes.radius.r),
+        borderRadius: BorderRadius.circular(40.r),
       ),
     ),
   ),
@@ -122,9 +128,7 @@ ThemeData appThemes = ThemeData(
 
 InputBorder _textFieldBorder(Color color) {
   return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(
-      AppSizes.radius.r,
-    ),
+    borderRadius: BorderRadius.circular(40.r),
     borderSide: BorderSide(
       color: color,
       width: AppSizes.borderWidth.w,

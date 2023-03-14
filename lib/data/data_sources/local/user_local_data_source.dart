@@ -19,6 +19,22 @@ class UserLocalDataSource {
     return _storage.remove(AppConstants.user);
   }
 
+  savePassword(String password) {
+    _storage.write(AppConstants.password, password);
+  }
+
+  String getPassword() {
+    return _storage.read(AppConstants.password) ?? '';
+  }
+
+  saveRememberMeStatus(bool status) {
+    _storage.write(AppConstants.rememberMe, status);
+  }
+
+  bool isRememberMe() {
+    return _storage.read(AppConstants.rememberMe) ?? false;
+  }
+
   saveUserAuthenticatedStatus(bool status) {
     _storage.write(AppConstants.isAuthenticated, status);
   }

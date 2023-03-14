@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hr/data/repositories/user_repository.dart';
 
 import '../../../data/params/login_params.dart';
 import '../../core/utils/enums.dart';
@@ -10,12 +11,38 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final AuthRepository _authRepository;
+  final UserRepository _userRepository;
 
-  LoginCubit(this._authRepository) : super(LoginState.init());
+  LoginCubit(
+    this._authRepository,
+    this._userRepository,
+  ) : super(LoginState.init());
+
+  checkRememberMe() {
+    if (_userRepository.isRememberMe()) {
+      Future.delayed(Duration.zero, () {
+        emit(
+          state.copyWith(
+            rememberMe: true,
+            companyId: '7899n',
+            phone: _userRepository.getUserData().phone,
+            password: _userRepository.getPassword(),
+          ),
+        );
+      });
+    }
+  }
 
   phoneChanged(String phone) {
     emit(state.copyWith(
       phone: phone,
+      requestState: RequestState.none,
+    ));
+  }
+
+  companyIdChanged(String companyId) {
+    emit(state.copyWith(
+      companyId: companyId,
       requestState: RequestState.none,
     ));
   }
@@ -36,6 +63,15 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
+  toggleRememberMeStatus() {
+    emit(
+      state.copyWith(
+        rememberMe: !state.rememberMe,
+        requestState: RequestState.none,
+      ),
+    );
+  }
+
   login(GlobalKey<FormState> formState) async {
     if (formState.currentState!.validate()) {
       emit(state.copyWith(
@@ -44,8 +80,10 @@ class LoginCubit extends Cubit<LoginState> {
       ));
       final responseEither = await _authRepository.login(
         LoginParams(
+          companyId: state.companyId,
           phone: state.phone,
           password: state.password,
+          rememberMe: state.rememberMe,
         ),
       );
       responseEither.fold(

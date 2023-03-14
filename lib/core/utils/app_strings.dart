@@ -34,6 +34,8 @@ class AppStrings {
   static const String phoneNumberIsInvalid = 'Phone number is invalid';
   static const String enterYourPhoneNumber = 'Enter your phone number';
   static const String rememberMe = 'Remember me';
+  static const String companyId = 'Company id';
+  static const String companyIdIsRequired = 'Company id is required';
   static const String loggedInSuccessfully = 'Logged in successfully';
   static const String home = 'Home';
   static const String confirm = 'Confirm';

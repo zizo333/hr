@@ -13,6 +13,7 @@ class CustomCheckBox extends StatelessWidget {
   final String? title;
   final TextStyle? titleStyle;
   final Color? titleColor;
+  final double? radius;
 
   const CustomCheckBox({
     Key? key,
@@ -25,6 +26,7 @@ class CustomCheckBox extends StatelessWidget {
     this.size = 23,
     this.titleStyle,
     this.titleColor,
+    this.radius,
   }) : super(key: key);
 
   @override
@@ -44,7 +46,7 @@ class CustomCheckBox extends StatelessWidget {
               height: size.w,
               width: size.w,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6.r),
+                borderRadius: BorderRadius.circular(radius?.r ?? 6.r),
                 color: Colors.white,
                 border: Border.all(
                   color: Theme.of(context).colorScheme.secondary,
@@ -76,7 +78,7 @@ class CustomCheckBox extends StatelessWidget {
                             fontSize: 14.sp,
                             color: Theme.of(context).colorScheme.secondary,
                             fontWeight: FontWeight.w500,
-                            height: 1.5,
+                            height: 1.6,
                           ),
                     ),
                   ),

@@ -6,20 +6,16 @@ class UserRepository {
 
   UserRepository(this._userLocalDataSource);
 
-  saveUserData(UserModel userModel) {
-    _userLocalDataSource.saveUserData(userModel);
-  }
-
   UserModel getUserData() {
     return _userLocalDataSource.getUserData();
   }
 
-  clearUserData() {
-    _userLocalDataSource.clearUserData();
+  String getPassword() {
+    return _userLocalDataSource.getPassword();
   }
 
-  saveUserAuthenticatedStatus(bool status) {
-    _userLocalDataSource.saveUserAuthenticatedStatus(status);
+  bool isRememberMe() {
+    return _userLocalDataSource.isRememberMe();
   }
 
   bool isUserAuthenticated() {
