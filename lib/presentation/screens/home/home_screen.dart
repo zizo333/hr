@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hr/config/routes/app_router.dart';
+import 'package:hr/config/routes/app_routes.dart';
+import 'package:hr/config/themes/app_colors.dart';
 import 'package:hr/core/utils/app_images.dart';
+import 'package:hr/core/utils/app_sizes.dart';
 import 'package:hr/core/utils/app_strings.dart';
+import 'package:hr/core/utils/enums.dart';
+import 'package:hr/cubit/home/home_cubit.dart';
+import 'package:hr/presentation/screens/home/widgets/day_action_button.dart';
+import 'package:hr/presentation/screens/home/widgets/day_timer.dart';
+import 'package:hr/presentation/screens/home/widgets/slide_button.dart';
 import 'package:hr/presentation/widgets/custom_app_bar_icon.dart';
 import 'package:slider_button/slider_button.dart';
 
@@ -16,7 +26,9 @@ class HomeScreen extends StatelessWidget {
           AppStrings.home.toUpperCase(),
         ),
         leading: CustomAppBarIcon(
-          onTap: () {},
+          onTap: () {
+            AppRouter.offNamed(context, AppRoutes.login);
+          },
           icon: SvgImages.logout,
         ),
         actions: [
@@ -26,38 +38,55 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Stack(
-        children: [
-          Column(
-            children: [],
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 40.h),
-              child: SliderButton(
-                action: () {
-                  print('...');
-                },
-                height: 60,
-                label: Text(
-                  AppStrings.slideToConfirm,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 17.sp,
-                  ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.horizontalPadding.w,
+          vertical: AppSizes.verticalPadding.h,
+        ),
+        child: BlocConsumer<HomeCubit, HomeState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (state.dayAction == DayAction.off) ...[
+                      DayTimer(DateTime.now()),
+                      SizedBox(
+                        height: 100.h,
+                      ),
+                    ],
+                    if (state.dayAction != DayAction.end)
+                      DayActionButton(
+                        onPressed: () {
+                          context.read<HomeCubit>().showSlideButton();
+                        },
+                        title: state.dayAction == DayAction.on
+                            ? AppStrings.dayOn
+                            : AppStrings.dayOff,
+                      )
+                  ],
                 ),
-                baseColor: Theme.of(context).primaryColor,
-                buttonColor: Theme.of(context).primaryColor,
-                icon: Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 26.w,
-                ),
-              ),
-            ),
-          )
-        ],
+                if (state.showSlideButton)
+                  SlideButton(
+                    action: () {
+                      if (state.dayAction == DayAction.on) {
+                        context
+                            .read<HomeCubit>()
+                            .changeDayAction(DayAction.off);
+                      } else {
+                        context
+                            .read<HomeCubit>()
+                            .changeDayAction(DayAction.end);
+                      }
+                    },
+                  )
+              ],
+            );
+          },
+        ),
       ),
     );
   }

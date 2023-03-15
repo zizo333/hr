@@ -78,4 +78,11 @@ class HelperFunctions {
 
   static bool get isKeyboardOpened =>
       WidgetsBinding.instance.window.viewInsets.bottom > 0;
+
+  static String convertSecondsToHMS(int seconds) {
+    final h = seconds ~/ 3600;
+    final m = (seconds - h * 3600) ~/ 60;
+    final s = seconds - (h * 3600) - (m * 60);
+    return '${h >= 10 ? h : '0$h'}:${m >= 10 ? m : '0$m'}:${s >= 10 ? s : '0$s'}';
+  }
 }

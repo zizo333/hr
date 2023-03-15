@@ -32,7 +32,7 @@ class CustomAppBarIcon extends StatelessWidget {
             icon,
             height: size?.w ?? 24.w,
             width: size?.w ?? 24.w,
-            color: iconColor,
+            color: iconColor ?? Theme.of(context).primaryColor,
           ),
         ),
       ),

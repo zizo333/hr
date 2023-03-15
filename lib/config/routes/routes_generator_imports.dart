@@ -5,6 +5,7 @@ import 'package:hr/presentation/screens/home/home_screen.dart';
 import 'package:hr/presentation/screens/login/login_screen.dart';
 import '../../core/services/service_locator.dart';
 import '../../core/utils/app_strings.dart';
+import '../../cubit/home/home_cubit.dart';
 import '../../cubit/login/login_cubit.dart';
 import '../../cubit/splash/splash_cubit.dart';
 import '../../data/repositories/auth_repository.dart';

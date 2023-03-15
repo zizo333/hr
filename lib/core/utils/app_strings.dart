@@ -41,4 +41,6 @@ class AppStrings {
   static const String confirm = 'Confirm';
   static const String refresh = 'Refresh';
   static const String slideToConfirm = 'Slide to confirm';
+  static const String dayOn = 'Day on';
+  static const String dayOff = 'Day off';
 }

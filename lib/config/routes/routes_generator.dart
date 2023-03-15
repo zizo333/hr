@@ -23,7 +23,10 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
       );
     case AppRoutes.home:
       return AppPageRoute(
-        builder: (context) => const HomeScreen(),
+        builder: (context) => BlocProvider(
+          create: (context) => HomeCubit(),
+          child: const HomeScreen(),
+        ),
       );
 
     default:
