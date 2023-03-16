@@ -43,4 +43,5 @@ class AppStrings {
   static const String slideToConfirm = 'Slide to confirm';
   static const String dayOn = 'Day on';
   static const String dayOff = 'Day off';
+  static const String workingTime = 'Working time';
 }

@@ -11,6 +11,7 @@ import 'package:hr/core/utils/enums.dart';
 import 'package:hr/cubit/home/home_cubit.dart';
 import 'package:hr/presentation/screens/home/widgets/day_action_button.dart';
 import 'package:hr/presentation/screens/home/widgets/day_timer.dart';
+import 'package:hr/presentation/screens/home/widgets/end_widget.dart';
 import 'package:hr/presentation/screens/home/widgets/slide_button.dart';
 import 'package:hr/presentation/widgets/custom_app_bar_icon.dart';
 import 'package:slider_button/slider_button.dart';
@@ -66,7 +67,8 @@ class HomeScreen extends StatelessWidget {
                         title: state.dayAction == DayAction.on
                             ? AppStrings.dayOn
                             : AppStrings.dayOff,
-                      )
+                      ),
+                    if (state.dayAction == DayAction.end) const EndWidget(),
                   ],
                 ),
                 if (state.showSlideButton)

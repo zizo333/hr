@@ -8,7 +8,7 @@ import 'app_colors.dart';
 
 ThemeData appThemes = ThemeData(
   fontFamily: AppConstants.fontFamily,
-  primaryColor: AppColors.c404040,
+  primaryColor: AppColors.c6600cc,
   backgroundColor: AppColors.cF6F8FA,
   canvasColor: AppColors.cF6F8FA,
   shadowColor: AppColors.cE2DFDF,
@@ -16,8 +16,8 @@ ThemeData appThemes = ThemeData(
   selectedRowColor: AppColors.cAEB3BD,
   unselectedWidgetColor: AppColors.cAEB3BD,
   colorScheme: ThemeData().colorScheme.copyWith(
-        primary: AppColors.c404040,
-        secondary: AppColors.cE27E1C,
+        primary: AppColors.c6600cc,
+        secondary: AppColors.cff9933,
       ),
   appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle.dark,
@@ -33,7 +33,7 @@ ThemeData appThemes = ThemeData(
     titleTextStyle: TextStyle(
       fontSize: 20.sp,
       fontWeight: FontWeight.w500,
-      color: AppColors.c404040,
+      color: AppColors.c6600cc,
       fontFamily: AppConstants.fontFamily,
       height: 1.6,
     ),
@@ -59,13 +59,13 @@ ThemeData appThemes = ThemeData(
     fillColor: AppColors.cFFFFFF,
     enabledBorder: _textFieldBorder(AppColors.c707070),
     disabledBorder: _textFieldBorder(AppColors.c707070),
-    focusedBorder: _textFieldBorder(AppColors.c404040),
+    focusedBorder: _textFieldBorder(AppColors.c6600cc),
     errorBorder: _textFieldBorder(AppColors.cEF5350),
     focusedErrorBorder: _textFieldBorder(AppColors.cEF5350),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      backgroundColor: AppColors.c404040,
+      backgroundColor: AppColors.c6600cc,
       textStyle: TextStyle(
         color: Colors.white,
         fontSize: 16.sp,
@@ -99,11 +99,11 @@ ThemeData appThemes = ThemeData(
     style: TextButton.styleFrom(
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       textStyle: TextStyle(
-        color: AppColors.cE27E1C,
+        color: AppColors.cff9933,
         fontSize: 14.sp,
         fontFamily: AppConstants.fontFamily,
       ),
-      foregroundColor: AppColors.cE27E1C,
+      foregroundColor: AppColors.cff9933,
     ),
   ),
   iconTheme: IconThemeData(size: 24.w),
