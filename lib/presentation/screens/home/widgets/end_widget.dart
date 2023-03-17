@@ -13,25 +13,21 @@ class EndWidget extends StatelessWidget {
     return Expanded(
       child: Column(
         children: [
-          Expanded(child: _Item(title: AppStrings.dayOn, content: '09:00:00')),
+          const Expanded(
+            child: _Item(title: AppStrings.dayOn, content: '09:00:00'),
+          ),
           SizedBox(
             height: AppSizes.verticalPadding.h,
           ),
-          Expanded(
-              child: const _Item(
-                  title: AppStrings.workingTime, content: '08:30:10')),
+          const Expanded(
+            child: _Item(title: AppStrings.workingTime, content: '08:30:10'),
+          ),
           SizedBox(
             height: AppSizes.verticalPadding.h,
           ),
-          Expanded(child: _Item(title: AppStrings.dayOff, content: '17:30:10')),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //   children: [
-          //     SizedBox(
-          //       width: 30.w,
-          //     ),
-          //   ],
-          // ),
+          const Expanded(
+            child: _Item(title: AppStrings.dayOff, content: '17:30:10'),
+          ),
         ],
       ),
     );

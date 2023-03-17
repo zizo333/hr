@@ -34,7 +34,9 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           CustomAppBarIcon(
-            onTap: () {},
+            onTap: () {
+              AppRouter.to(context, AppRoutes.attendanceTable);
+            },
             icon: SvgImages.meeting,
           ),
         ],

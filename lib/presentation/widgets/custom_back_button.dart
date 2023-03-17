@@ -15,7 +15,7 @@ class CustomBackButton extends StatelessWidget {
     this.onTap,
     this.bgColor,
     this.iconColor,
-    this.size = 12,
+    this.size = 20,
   });
 
   @override
@@ -24,7 +24,6 @@ class CustomBackButton extends StatelessWidget {
       onTap: onTap == null ? () => AppRouter.back(context) : onTap!,
       icon: SvgImages.back,
       size: size,
-      bottomPadding: 0,
       bgColor: bgColor,
       iconColor: iconColor,
     );

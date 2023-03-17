@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr/data/repositories/user_repository.dart';
+import 'package:hr/presentation/screens/attendance_table/attendance_table_screen.dart';
 import 'package:hr/presentation/screens/home/home_screen.dart';
 import 'package:hr/presentation/screens/login/login_screen.dart';
 import '../../core/services/service_locator.dart';

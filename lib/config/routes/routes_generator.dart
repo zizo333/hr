@@ -28,6 +28,10 @@ Route<dynamic>? onGenerateRoute(RouteSettings settings) {
           child: const HomeScreen(),
         ),
       );
+    case AppRoutes.attendanceTable:
+      return AppPageRoute(
+        builder: (context) => const AttendanceTableScreen(),
+      );
 
     default:
       return AppPageRoute(

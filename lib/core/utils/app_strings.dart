@@ -44,4 +44,6 @@ class AppStrings {
   static const String dayOn = 'Day on';
   static const String dayOff = 'Day off';
   static const String workingTime = 'Working time';
+  static const String attendanceTable = 'Attendance table';
+  static const String todaysDate = 'Today\'s date';
 }
